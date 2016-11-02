@@ -35,3 +35,6 @@ desktop.ini
 
 # User content
 /content
+
+# IDE
+.idea
