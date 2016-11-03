@@ -20,13 +20,6 @@ desktop.ini
 /_build/phpdoc.cache
 /_build/deploy-*.git
 
-# User config
-/config/config.php
-
-# User themes
-/themes/*
-!/themes/default
-
 # User plugins
 /plugins/*
 !/plugins/0?-*
