@@ -50,7 +50,7 @@ $config['content_dir'] = 'content/';  // Content directory
 /*
  * PLUGINS
  */
-// $config['DummyPlugin.enabled'] = false;      // Force DummyPlugin to be disabled
+$config['03-PicoRedirect.enabled'] = true;      // Force DummyPlugin to be disabled
 
 /*
  * CUSTOM
