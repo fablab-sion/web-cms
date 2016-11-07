@@ -1,0 +1,46 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {{ parent() }}
+
+    <div class="grid-wrapper">
+        <div class="related-wrapper">
+            {% for product in meta.products %}
+                <div class="related">
+                    <div class="overlay" style="height: 135px;overflow: hidden;" id="overlay{{ product }}"> <a href="#"><img id="img{{ product }}" src="{{ theme_url }}/style/images/art/blog-th1.jpg" alt="" />
+                            <div></div>
+                        </a> </div>
+                    <div class="post-content" id="post-content{{ product }}">
+                        <h2><a></a></h2>
+                        <div class="meta"> <span id="price{{ product }}"></span> <span class="sep">|</span> <span class="comments"><a href="#">Ajouter au panier</a></span> </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    {#<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>#}
+    <script>
+        $( document ).ready(function() {
+
+            {%  for product in meta.products %}
+            $.get('http://doc.wisibex.com/product/?id={{ product }}', function(data){
+                console.log(data);
+                data = JSON.parse(data);
+                console.log(data);
+
+                $("#img{{ product }}").attr("src", data.image);
+                $("#overlay{{ product }} a").attr("href", data.target);
+                $("#post-content{{ product }} h2 a").attr("href", data.target);
+                $("#post-content{{ product }} h2 a").html(data.name);
+                $("#price{{ product }}").html("CHF " + data.price.toFixed(2));
+            });
+
+            {% endfor %}
+        });
+    </script>
+
+{% endblock %}

@@ -43,7 +43,7 @@
     <div class="top-wrapper">
         <header>
             <div class="inner">
-                <div class="logo"><a href="index.html"><img src="{{ theme_url }}/style/images/logo.png" alt="" /></a></div>
+                <div class="logo"><a href="index"><img src="{{ theme_url }}/style/images/logo.png" alt="" /></a></div>
                 <!-- Begin Menu -->
                 <nav id="menu" class="menu">
                     <ul id="tiny">
@@ -57,12 +57,11 @@
                                 {% endif %}
                             {% endif %}
                         {% endfor %}
-                        <li><a href="#">{{ meta.language }}</a>
-                            <ul>
-                                <li><a href="/?fr">fr</a></li>
-                                <li><a href="/?en">en</a></li>
-                            </ul>
-                        </li>
+                        <span style="margin-left: 10px;">
+                            <a href={% if meta.language == "fr" %}"#" style="color: darkgray;"{% else %}{% if meta.translations.fr %}{{ meta.translations.fr }}{% else %}"/?fr"{% endif %}{% endif %}>fr</a>
+                            <a href={% if meta.language == "en" %}"#" style="color: darkgray;"{% else %}{% if meta.translations.en %}{{ meta.translations.en }}{% else %}"/?en"{% endif %}{% endif %}>en</a>
+                            {#<a href={% if meta.translations.en %}{{ meta.translations.en }}{% else %}"/?en"{% endif %}{% if meta.language == "en" %}style="color: darkgray;"{% endif %}>en</a>#}
+                        </span>
                     </ul>
                 </nav>
                 <!-- End Menu -->
@@ -124,5 +123,8 @@
 </div>
 <!-- End Body Wrapper -->
 <script type="text/javascript" src="{{ theme_url }}/style/js/scripts.js"></script>
+{% block script %}
+
+{% endblock %}
 </body>
 </html>
