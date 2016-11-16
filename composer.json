@@ -38,5 +38,10 @@
             "PicoPluginInterface": "lib/",
             "AbstractPicoPlugin": "lib/"
         }
-    }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "disable-tls": true,
+        "secure-http": false
+    }    
 }

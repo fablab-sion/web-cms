@@ -48,20 +48,10 @@
                 <nav id="menu" class="menu">
                     <ul id="tiny">
                         {% for page in pages if page.title %}
-                            {% if page.id starts with "learn/" %}
-                            {% else %}
-                                {% if page.meta.language == meta.language %}
-                                <li{% if page.id == current_page.id %} class="active"{% endif %}>
-                                    <a href="{{ page.url }}">{{ page.title }}</a>
-                                </li>
-                                {% endif %}
-                            {% endif %}
+                            <li{% if page.id == current_page.id %} class="active"{% endif %}>
+                                <a href="{{ page.url }}">{{ page.title }}</a>
+                            </li>
                         {% endfor %}
-                        <span style="margin-left: 10px;">
-                            <a href={% if meta.language == "fr" %}"#" style="color: darkgray;"{% else %}{% if meta.translations.fr %}{{ meta.translations.fr }}{% else %}"/?fr"{% endif %}{% endif %}>fr</a>
-                            <a href={% if meta.language == "en" %}"#" style="color: darkgray;"{% else %}{% if meta.translations.en %}{{ meta.translations.en }}{% else %}"/?en"{% endif %}{% endif %}>en</a>
-                            {#<a href={% if meta.translations.en %}{{ meta.translations.en }}{% else %}"/?en"{% endif %}{% if meta.language == "en" %}style="color: darkgray;"{% endif %}>en</a>#}
-                        </span>
                     </ul>
                 </nav>
                 <!-- End Menu -->
