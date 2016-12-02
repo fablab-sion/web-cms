@@ -1,0 +1,53 @@
+{% extends "base.twig" %}
+
+{% block inner %}
+
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+
+  {% block aside %}
+    {% set sides = [{'id':'evenements','title':'Prochains événements'}, {'id':'blog','title':'Dernières actualités'}] %}
+    <aside class="sidebar">
+      {% for side in sides %}
+      <div class="sidebox">
+        <h3><a href="{{ side.id}}">{{ side.title }}</a> </h3>
+        <ul class="post-list">
+          {% for page in pages|sort_by("time") if page.id starts with side.id ~ "/" %}
+            <li>
+              <div class="overlay"> <a href="{{ page.id }}"><img src="{{ base_url }}/{{ page.meta.thumbnail }}" alt=""/>
+                  <div></div>
+                </a> </div>
+              <div class="meta">
+                <h6><a href="{{ page.id }}">{{ page.title }}</a></h6>
+                <em>{{ page.date|date("d.m.y") }}</em> </div>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endfor %}
+      </div>
+      {#<div class="sidebox">#}
+      {#<h3>Search</h3>#}
+      {#<form class="searchform" method="get">#}
+      {#<input type="text" id="s2" name="s" value="type and hit enter" onfocus="this.value=''" onblur="this.value='type and hit enter'"/>#}
+      {#</form>#}
+      {#</div>#}
+      {#<div class="sidebox">#}
+      {#<h3>Custom Text</h3>#}
+      {#<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>#}
+      {#<p>Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue. Fusce  mauris condimentum.</p>#}
+      {#</div>#}
+      {#<div class="sidebox">#}
+      {#<h3>Categories</h3>#}
+      {#<ul class="list">#}
+      {#<li><a href="#">Web Design</a> (21)</li>#}
+      {#<li><a href="#">Photography</a> (19)</li>#}
+      {#<li><a href="#">Graphic Design</a> (16)</li>#}
+      {#<li><a href="#">Manipulation</a> (15)</li>#}
+      {#<li><a href="#">Motion Graphics</a> (12)</li>#}
+      {#</ul>#}
+      {#</div>#}
+    </aside>
+  {% endblock %}
+{% endblock %}
+

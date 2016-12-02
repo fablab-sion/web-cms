@@ -1,0 +1,59 @@
+{% extends "base-with-aside.twig" %}
+{% block content %}
+    <div class="inner">
+      <h1 class="aligncenter">Get in Touch</h1>
+      <p class="description aligncenter">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+      <br />
+      <div class="map">
+        {#<iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?source=embed&amp;hl=en-US&amp;ie=UTF8&amp;ll=46.230810, 7.362979&amp;spn=0.099472,0.263844&amp;t=m&amp;z=15&amp;output=embed"></iframe>#}
+        <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=fablab,sion&z=15&output=embed"></iframe>
+      </div>
+      <br />
+      <!-- Begin Content -->
+      <section class="content">
+        <h2>Feel Free to Drop Us a Line</h2>
+        <p>Maecenas vehicula condimentum consequat. Ut suscipit ipsum eget leotero convallis feugiat upsoyut fermentum leo auctor consequat turpis aturo nisiper.</p>
+        <!-- Begin Form -->
+        <div class="form-container">
+          <div class="response"></div>
+          <form class="forms" action="contact/form-handler.php" method="post">
+            <fieldset>
+              <ol>
+                <li class="form-row text-input-row name-field">
+                  <input type="text" name="name" class="text-input defaultText required" title="Name (Required)"/>
+                </li>
+                <li class="form-row text-input-row email-field">
+                  <input type="text" name="email" class="text-input defaultText required email" title="Email (Required)"/>
+                </li>
+                <li class="form-row text-input-row subject-field">
+                  <input type="text" name="subject" class="text-input defaultText" title="Subject"/>
+                </li>
+                <li class="form-row text-area-row">
+                  <textarea name="message" class="text-area required"></textarea>
+                </li>
+                <li class="form-row hidden-row">
+                  <input type="hidden" name="hidden" value="" />
+                </li>
+                <li class="button-row">
+                  <input type="submit" value="Submit" name="submit" class="btn-submit" />
+                </li>
+              </ol>
+              <input type="hidden" name="v_error" id="v-error" value="Required" />
+              <input type="hidden" name="v_email" id="v-email" value="Enter a valid email" />
+            </fieldset>
+          </form>
+        </div>
+        <!-- End Form --> 
+      </section>
+      <aside class="sidebar">
+        <div class="sidebox">
+          <h3>Address</h3>
+          <p>Fusce dapibus, tellus commodo, tortor mauris condimentum utellus fermentum, porta sem malesuada magna. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur.</p>
+          <i class="icon-location contact"></i> Moon St. 14/05 Light, Jupiter <br />
+          <i class="icon-phone contact"></i> 0247 541 65 87 <br />
+          <i class="icon-mail contact"></i> <a href="mailto:support@webpaint.com">support@webpaint.com</a> </div>
+      </aside>
+      <div class="clear"></div>
+    </div>
+    <!-- End Inner --> 
+  {% endblock %}

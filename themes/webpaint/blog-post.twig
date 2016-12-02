@@ -1,0 +1,25 @@
+{% extends "base-with-aside.twig" %}
+
+{% block content %}
+   <!-- Begin Inner -->
+  <div class="inner">
+    <section class="content">
+        <div class="post">
+          <div class="info">
+            <div class="date">
+              <div class="day">{{ date|date("d") }}</div>
+              <div class="month">{{ date|date("M") }}</div>
+            </div>
+            <div class="details">
+              <h2 class="post-title">{{ meta.title }}</a></h2>
+              <div class="meta"> <span>Posté par <a href="mailto:{{ meta.mail }}">{{ meta.author }}</a></span></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="overlay"><a href="{{ id }}"><img src="{{ base_url }}{{ meta.image }}" alt="" /></a></div>
+          <p>{{ meta.abstract }}</p>
+          {{ content }}
+      </div>
+
+    </section>
+{% endblock %}

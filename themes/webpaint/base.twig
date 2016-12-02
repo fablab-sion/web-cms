@@ -47,7 +47,7 @@
                 <!-- Begin Menu -->
                 <nav id="menu" class="menu">
                     <ul id="tiny">
-                        {% for page in pages if page.title %}
+                        {% for page in pages if page.title and page.meta.type == "menu" %}
                             <li{% if page.id == current_page.id %} class="active"{% endif %}>
                                 <a href="{{ page.url }}">{{ page.title }}</a>
                             </li>
@@ -65,10 +65,9 @@
     <div class="light-wrapper">
         <!-- Begin Inner -->
         <div class="inner">
-            {% block content %}
-                {{ content }}
-            {% endblock %}
+            {% block inner %}
 
+            {% endblock %}
             <div class="clear"></div>
         </div>
         <!-- End Inner -->
